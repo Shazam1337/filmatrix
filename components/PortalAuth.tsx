@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { UserData } from '@/types'
 
-export default function PortalAuth({ onAuth }: { onAuth: (data: any) => void }) {
+export default function PortalAuth({ onAuth }: { onAuth: (data: UserData) => void }) {
   const [authMethod, setAuthMethod] = useState<'email' | 'wallet'>('email')
   const [email, setEmail] = useState('')
   const [wallet, setWallet] = useState('')

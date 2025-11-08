@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Project } from '@/types'
 
-export default function ProjectHero({ project }: { project: any }) {
+export default function ProjectHero({ project }: { project: Project }) {
   return (
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden border-b border-neon-lime/30">
       <div className="absolute inset-0 grid-pattern opacity-20"></div>

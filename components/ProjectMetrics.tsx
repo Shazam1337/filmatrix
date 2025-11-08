@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { ChartDataPoint } from '@/types'
 
 interface Metrics {
   tx_per_min: number
@@ -14,7 +15,7 @@ interface Metrics {
 
 export default function ProjectMetrics({ projectId }: { projectId: string }) {
   const [metrics, setMetrics] = useState<Metrics | null>(null)
-  const [chartData, setChartData] = useState<any[]>([])
+  const [chartData, setChartData] = useState<ChartDataPoint[]>([])
 
   useEffect(() => {
     // Fetch metrics

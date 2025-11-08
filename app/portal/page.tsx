@@ -4,12 +4,13 @@ import { useState } from 'react'
 import Header from '@/components/Header'
 import PortalAuth from '@/components/PortalAuth'
 import PortalDashboard from '@/components/PortalDashboard'
+import { UserData } from '@/types'
 
 export default function PortalPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [userData, setUserData] = useState<any>(null)
+  const [userData, setUserData] = useState<UserData | null>(null)
 
-  const handleAuth = (data: any) => {
+  const handleAuth = (data: UserData) => {
     setUserData(data)
     setIsAuthenticated(true)
   }
@@ -26,7 +27,7 @@ export default function PortalPage() {
   return (
     <>
       <Header />
-      <PortalDashboard userData={userData} />
+      {userData && <PortalDashboard userData={userData} />}
     </>
   )
 }

@@ -8,8 +8,9 @@ import ProjectTeam from '@/components/ProjectTeam'
 import ProjectRoadmap from '@/components/ProjectRoadmap'
 import ProjectSignal from '@/components/ProjectSignal'
 import Footer from '@/components/Footer'
+import { Project } from '@/types'
 
-const mockProjects: Record<string, any> = {
+const mockProjects: Record<string, Project> = {
   '1': {
     id: '1',
     name: 'NEURALINK PROTOCOL',
@@ -44,11 +45,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     <main className="min-h-screen">
       <Header />
       <ProjectHero project={project} />
-      <ProjectAbout about={project.about} />
+      {project.about && <ProjectAbout about={project.about} />}
       <ProjectMetrics projectId={project.id} />
       <ProjectDocuments />
-      <ProjectTeam team={project.team} />
-      <ProjectRoadmap roadmap={project.roadmap} />
+      {project.team && <ProjectTeam team={project.team} />}
+      {project.roadmap && <ProjectRoadmap roadmap={project.roadmap} />}
       <ProjectSignal projectId={project.id} />
       <Footer />
     </main>

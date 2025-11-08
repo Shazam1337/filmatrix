@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { UserData } from '@/types'
 
-export default function PortalDashboard({ userData }: { userData: any }) {
+export default function PortalDashboard({ userData }: { userData: UserData }) {
   const [signal, setSignal] = useState(userData.signal || 0)
   const [referrals, setReferrals] = useState(userData.referrals || 0)
 
