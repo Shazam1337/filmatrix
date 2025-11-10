@@ -57,7 +57,7 @@ export default function AnimatedGrid() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
-      ctx.strokeStyle = 'rgba(212, 255, 61, 0.2)'
+      ctx.strokeStyle = 'rgba(0, 245, 212, 0.2)'
       ctx.lineWidth = 1
 
       // Draw connections with pulse
@@ -67,8 +67,10 @@ export default function AnimatedGrid() {
         
         const gradient = ctx.createLinearGradient(node1.x, node1.y, node2.x, node2.y)
         const alpha = 0.1 + Math.sin(pulse + i) * 0.1
-        gradient.addColorStop(0, `rgba(212, 255, 61, ${alpha})`)
-        gradient.addColorStop(1, `rgba(212, 255, 61, ${alpha * 0.5})`)
+        // Alternate between Filecoin blue and lime glow
+        const color = i % 2 === 0 ? '0, 245, 212' : '200, 255, 0'
+        gradient.addColorStop(0, `rgba(${color}, ${alpha})`)
+        gradient.addColorStop(1, `rgba(${color}, ${alpha * 0.5})`)
         
         ctx.strokeStyle = gradient
         ctx.beginPath()
@@ -78,16 +80,18 @@ export default function AnimatedGrid() {
       })
 
       // Draw nodes
-      ctx.fillStyle = '#D4FF3D'
       nodesRef.current.forEach((node, i) => {
         const size = 3 + Math.sin(pulse + i) * 1
+        // Alternate colors
+        const color = i % 2 === 0 ? '#00F5D4' : '#C8FF00'
+        ctx.fillStyle = color
         ctx.beginPath()
         ctx.arc(node.x, node.y, size, 0, Math.PI * 2)
         ctx.fill()
         
         // Glow effect
         ctx.shadowBlur = 10
-        ctx.shadowColor = '#D4FF3D'
+        ctx.shadowColor = color
         ctx.fill()
         ctx.shadowBlur = 0
       })

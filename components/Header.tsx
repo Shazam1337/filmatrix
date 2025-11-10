@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import FilmatrixLogo from './FilmatrixLogo'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -18,54 +18,51 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/90 backdrop-blur border-b border-neon-lime/30' : 'bg-transparent'
+        isScrolled ? 'bg-bg-dark/95 backdrop-blur border-b border-filecoin-blue/30' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <Image
-              src="/logo.png"
-              alt="VECTOR402"
-              width={80}
-              height={80}
-              className="object-contain"
-            />
-            <span className="text-2xl font-bold text-neon-lime hover:glow-text transition-all">
-              VECTOR402
-            </span>
+            <FilmatrixLogo variant="full" size="sm" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="#how-it-works"
-              className="text-text-secondary hover:text-neon-lime transition-colors uppercase tracking-wider text-sm"
+              href="#dashboard"
+              className="text-text-secondary hover:text-filecoin-blue transition-colors uppercase tracking-wider text-sm terminal-text"
             >
-              How it Works
+              Dashboard
             </Link>
             <Link
               href="#projects"
-              className="text-text-secondary hover:text-neon-lime transition-colors uppercase tracking-wider text-sm"
+              className="text-text-secondary hover:text-filecoin-blue transition-colors uppercase tracking-wider text-sm terminal-text"
             >
               Projects
             </Link>
             <Link
+              href="/token"
+              className="text-text-secondary hover:text-filecoin-blue transition-colors uppercase tracking-wider text-sm terminal-text"
+            >
+              Token
+            </Link>
+            <Link
+              href="#about"
+              className="text-text-secondary hover:text-filecoin-blue transition-colors uppercase tracking-wider text-sm terminal-text"
+            >
+              About
+            </Link>
+            <Link
               href="#faq"
-              className="text-text-secondary hover:text-neon-lime transition-colors uppercase tracking-wider text-sm"
+              className="text-text-secondary hover:text-filecoin-blue transition-colors uppercase tracking-wider text-sm terminal-text"
             >
               FAQ
             </Link>
-            <Link
-              href="/portal"
-              className="px-6 py-2 border border-neon-lime text-neon-lime hover:bg-neon-lime hover:text-bg-dark transition-all duration-120 uppercase tracking-wider text-sm"
-            >
-              Portal
-            </Link>
             <a
-              href="https://x.com/vector402_xyz"
+              href="https://x.com/FILmatrix_on"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center border border-neon-lime/30 text-neon-lime hover:border-neon-lime hover:bg-neon-lime hover:text-bg-dark transition-all duration-120"
+              className="w-12 h-12 flex items-center justify-center border border-filecoin-blue/30 text-filecoin-blue hover:border-filecoin-blue hover:bg-filecoin-blue hover:text-bg-dark transition-all duration-300"
               aria-label="X (Twitter)"
             >
               <svg
@@ -84,4 +81,3 @@ export default function Header() {
     </header>
   )
 }
-

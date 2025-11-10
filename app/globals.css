@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,34 +7,59 @@
   body {
     @apply bg-bg-dark text-text-primary font-mono antialiased;
     background-image: 
-      radial-gradient(circle at 1px 1px, rgba(212, 255, 61, 0.05) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(0, 245, 212, 0.03) 1px, transparent 0);
     background-size: 20px 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono uppercase tracking-wider;
   }
 }
 
 @layer utilities {
   .glow-text {
-    text-shadow: 0 0 10px #D4FF3D, 0 0 20px #D4FF3D, 0 0 30px #D4FF3D;
+    text-shadow: 0 0 10px #00F5D4, 0 0 20px #00F5D4, 0 0 30px #00F5D4;
+  }
+  
+  .glow-text-lime {
+    text-shadow: 0 0 10px #C8FF00, 0 0 20px #C8FF00, 0 0 30px #C8FF00;
   }
   
   .glow-border {
-    box-shadow: 0 0 5px #D4FF3D, 0 0 10px #D4FF3D;
+    box-shadow: 0 0 5px #00F5D4, 0 0 10px #00F5D4;
+  }
+  
+  .glow-border-lime {
+    box-shadow: 0 0 5px #C8FF00, 0 0 10px #C8FF00;
   }
   
   .terminal-line {
-    @apply border-l-2 border-neon-lime pl-4;
+    @apply border-l-2 border-filecoin-blue pl-4;
   }
   
   .grid-pattern {
     background-image: 
-      linear-gradient(rgba(212, 255, 61, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(212, 255, 61, 0.1) 1px, transparent 1px);
+      linear-gradient(rgba(0, 245, 212, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 245, 212, 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
+  }
+  
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.25), 0 0 20px rgba(0, 245, 212, 0.15);
   }
 }
 
-/* Custom cursor for FAQ */
-.faq-item:hover {
+/* Custom cursor for interactive elements */
+.interactive:hover {
   cursor: crosshair;
+}
+
+/* Terminal text effect */
+.terminal-text {
+  letter-spacing: 0.1em;
 }
 

@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import LiveMetrics from './LiveMetrics'
+import FilecoinLiveMetrics from './FilecoinLiveMetrics'
 import AnimatedGrid from './AnimatedGrid'
+import FilmatrixLogo from './FilmatrixLogo'
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -23,25 +24,39 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
+          {/* Logo */}
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <FilmatrixLogo variant="full" size="lg" />
+          </motion.div>
+
           <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-4 tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight terminal-text"
             animate={isLoaded ? {} : { 
               x: [0, -2, 2, -1, 1, 0],
               transition: { duration: 0.3, delay: 0.5 }
             }}
           >
-            <span className="block">WELCOME TO THE</span>
-            <span className="block text-neon-lime glow-text">VERIFIABLE</span>
-            <span className="block">STARTUP FLOW</span>
+            <span className="block text-text-primary">FILMATRIX</span>
+            <span className="block text-filecoin-blue glow-text mt-2">
+              THE DECENTRALIZED MATRIX
+            </span>
+            <span className="block text-text-primary mt-2">
+              OF STORAGE AND FLOW
+            </span>
           </motion.h1>
           
           <motion.p
-            className="text-xl md:text-2xl text-text-secondary mt-6 mb-12"
+            className="text-lg md:text-xl text-text-secondary mt-6 mb-12 max-w-2xl mx-auto font-sans"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            VECTOR402 connects verified capital with verifiable innovation.
+            Track Filecoin storage, data flow, and on-chain activity — all in one place.
           </motion.p>
         </motion.div>
 
@@ -52,24 +67,23 @@ export default function Hero() {
           transition={{ delay: 1 }}
         >
           <a
-            href="/portal"
-            className="px-8 py-4 bg-neon-lime text-bg-dark font-semibold hover:glow-border transition-all duration-120 uppercase tracking-wider"
+            href="#dashboard"
+            className="px-8 py-4 bg-filecoin-blue text-bg-dark font-semibold hover:glow-border transition-all duration-300 uppercase tracking-wider terminal-text hover-glow"
           >
-            Launch Portal
+            Explore the Matrix
           </a>
           <a
             href="#projects"
-            className="px-8 py-4 border-2 border-neon-lime text-neon-lime font-semibold hover:bg-neon-lime hover:text-bg-dark transition-all duration-120 uppercase tracking-wider"
+            className="px-8 py-4 border-2 border-filecoin-blue text-filecoin-blue font-semibold hover:bg-filecoin-blue hover:text-bg-dark transition-all duration-300 uppercase tracking-wider terminal-text hover-glow"
           >
-            Explore Projects
+            View Projects
           </a>
         </motion.div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <LiveMetrics />
+        <FilecoinLiveMetrics />
       </div>
     </section>
   )
 }
-

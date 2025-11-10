@@ -8,23 +8,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'neon-lime': '#D4FF3D',
-        'bg-dark': '#0A0A0A',
+        'filecoin-blue': '#00F5D4',
+        'lime-glow': '#C8FF00',
+        'bg-dark': '#050505',
         'text-primary': '#EDEDED',
-        'text-secondary': '#8A8A8A',
+        'text-secondary': '#9AA0A6',
+        'error': '#FF3B3B',
       },
       fontFamily: {
-        mono: ['IBM Plex Mono', 'Space Mono', 'JetBrains Mono', 'monospace'],
+        mono: ['Space Mono', 'JetBrains Mono', 'monospace'],
+        sans: ['Inter', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'shimmer': 'shimmer 2s linear infinite',
+        'glow-blue': 'glow-blue 2s ease-in-out infinite alternate',
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px #D4FF3D, 0 0 10px #D4FF3D' },
-          '100%': { boxShadow: '0 0 10px #D4FF3D, 0 0 20px #D4FF3D, 0 0 30px #D4FF3D' },
+          '0%': { boxShadow: '0 0 5px #00F5D4, 0 0 10px #00F5D4' },
+          '100%': { boxShadow: '0 0 10px #00F5D4, 0 0 20px #00F5D4, 0 0 30px #00F5D4' },
+        },
+        'glow-blue': {
+          '0%': { boxShadow: '0 0 5px rgba(0,245,212,0.25), 0 0 10px rgba(0,245,212,0.25)' },
+          '100%': { boxShadow: '0 0 10px rgba(0,245,212,0.5), 0 0 20px rgba(0,245,212,0.5), 0 0 30px rgba(0,245,212,0.5)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-1000px 0' },

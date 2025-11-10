@@ -10,28 +10,28 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: 'WHAT IS 402 SIGNAL?',
-    answer: '402 signal is a real-time metric derived from on-chain and social activity. It measures velocity, engagement, and verifiable traction of projects listed on VECTOR402.',
+    question: 'WHAT IS FILMATRIX?',
+    answer: 'FILMATRIX is a decentralized data visualization platform built to empower the Filecoin ecosystem. It provides real-time analytics, network metrics, and project tracking for the Filecoin storage network.',
   },
   {
-    question: 'HOW DO I VERIFY MY STARTUP?',
-    answer: 'Connect your wallet, submit your pitch deck, and provide access to your 402 metrics. Our system verifies traction automatically through API integration.',
+    question: 'HOW DOES IT CONNECT TO FILECOIN?',
+    answer: 'FILMATRIX integrates directly with Filecoin network APIs to display live data including storage capacity, active deals, network power, and token metrics. All data is sourced from the Filecoin blockchain and network nodes.',
   },
   {
-    question: 'WHAT IS THE COST TO LIST?',
-    answer: 'Listing is free. VECTOR402 operates on a success-fee model. We take a percentage only when your project reaches funding milestones.',
+    question: 'WHAT DATA DOES IT SHOW?',
+    answer: 'FILMATRIX displays real-time Filecoin metrics including FIL price, total storage capacity (EiB), active storage deals, network nodes, miner activity, and project analytics. It also includes Velocity_402 metrics for project performance tracking.',
   },
   {
-    question: 'CAN I PARTICIPATE WITHOUT A PROJECT?',
-    answer: 'Yes. Participants can browse verified projects, follow signals, and access early investment opportunities through the portal.',
+    question: 'HOW CAN I LIST MY PROJECT?',
+    answer: 'Projects built on Filecoin can be submitted through our project submission form. We review projects based on their Filecoin integration, activity metrics, and contribution to the ecosystem.',
   },
   {
-    question: 'HOW IS VELOCITY_402 CALCULATED?',
-    answer: 'Velocity_402 combines transaction frequency, social engagement (CTR), unique user growth, and volume trends into a single normalized score (0-100).',
+    question: 'WHAT IS VELOCITY_402?',
+    answer: 'Velocity_402 is a performance metric that combines transaction frequency, user activity, storage volume, and network engagement into a single normalized score (0-100) for projects on the Filecoin network.',
   },
   {
-    question: 'IS MY DATA SECURE?',
-    answer: 'All data is encrypted and stored on-chain where applicable. We use zero-knowledge proofs for sensitive information and never share your metrics without consent.',
+    question: 'IS THE DATA REAL-TIME?',
+    answer: 'Yes, FILMATRIX updates data every 5 seconds from Filecoin network APIs. All metrics are live and reflect current network state, including price movements, storage growth, and deal activity.',
   },
 ]
 
@@ -39,28 +39,40 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-24 container mx-auto px-4">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-        FAQ
-      </h2>
+    <section id="faq" className="py-24 container mx-auto px-4 relative">
+      <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none"></div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 terminal-text">
+          <span className="text-filecoin-blue">FAQ</span>
+        </h2>
+        <p className="text-text-secondary text-center font-sans max-w-2xl mx-auto">
+          Frequently asked questions about FILMATRIX
+        </p>
+      </motion.div>
 
-      <div className="max-w-3xl mx-auto space-y-2">
+      <div className="max-w-3xl mx-auto space-y-2 relative z-10">
         {faqData.map((item, index) => (
           <div
             key={index}
-            className="border-l-2 border-neon-lime/30 hover:border-neon-lime transition-colors duration-120 cursor-crosshair"
+            className="border-l-2 border-filecoin-blue/30 hover:border-filecoin-blue transition-colors duration-300 cursor-crosshair interactive"
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            style={{ cursor: 'crosshair' }}
           >
-            <div className="pl-4 py-4 bg-black/30 hover:bg-black/50 transition-colors duration-120">
+            <div className="pl-4 py-4 bg-black/30 hover:bg-black/50 transition-colors duration-300">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold uppercase tracking-wider">
+                <h3 className="text-lg font-semibold uppercase tracking-wider terminal-text">
                   {item.question}
                 </h3>
                 <motion.span
                   animate={{ rotate: openIndex === index ? 45 : 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-neon-lime text-2xl font-light"
+                  className="text-filecoin-blue text-2xl font-light"
                 >
                   +
                 </motion.span>
@@ -75,7 +87,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="pt-4 text-text-secondary leading-relaxed">
+                    <p className="pt-4 text-text-secondary leading-relaxed font-sans">
                       {item.answer}
                     </p>
                   </motion.div>
@@ -88,4 +100,3 @@ export default function FAQ() {
     </section>
   )
 }
-

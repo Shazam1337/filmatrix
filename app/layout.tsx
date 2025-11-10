@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'VECTOR402 - Verifiable Startup Flow',
-  description: 'VECTOR402 connects verified capital with verifiable innovation.',
+  title: 'FILMATRIX - The Decentralized Matrix of Storage and Flow',
+  description: 'Track Filecoin storage, data flow, and on-chain activity — all in one place. FILMATRIX is a decentralized data visualization platform built to empower the Filecoin ecosystem.',
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',

@@ -1,7 +1,8 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import HowItWorks from '@/components/HowItWorks'
-import CuratedProjects from '@/components/CuratedProjects'
+import MetricsDashboard from '@/components/MetricsDashboard'
+import Projects from '@/components/Projects'
+import About from '@/components/About'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 
@@ -10,11 +11,11 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <HowItWorks />
-      <CuratedProjects />
+      <MetricsDashboard />
+      <Projects />
+      <About />
       <FAQ />
       <Footer />
     </main>
   )
 }
-
